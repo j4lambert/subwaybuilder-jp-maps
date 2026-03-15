@@ -7,7 +7,9 @@ Each map is limited to the metropolitan area (都市圏) around one or more majo
 - High level of detail, with sub-250m population placements in dense areas.
 - Spatial realism -- points are assigned in a manner that is aware of water features and mesh-weighted
 - Special demand from several sources is also modeled
-  - Airports (based on annual passenger statistics)
+  - Airports (based on annual passenger statistics, split by international and domestic travellers)
+  - Ports (based on annual passenger statistics)
+  - Hospitals (based on reported bed capacity)
   - Students in primary education (小学校・中学校) (clipped to school districts)
   - Students in secondary education (高等学校) (sized by overall municipal enrollment)
   - Students in post-secondary (大学・短期大学) (sized by real enrollment figures)
