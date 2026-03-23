@@ -37,7 +37,37 @@ Suggestions are greatly appreciated and I will do my best to accommodate request
 
 # Changelog
 
-## 0.2.0 (2026-03-09)
+## 0.3.0 (2026-03-22)
+
+### New Cities
+
+- `ITM` - 大阪 / Ōsaka
+- `OKJ` - 岡山 / Okayama
+
+### New Features
+
+- Added demand for ~110 universities/technical colleges with no matching enrollment data (totalling ~140k students)
+- Added demand for ~70 aquariums / zoos / botanical gardens
+
+### Other Updates
+
+- Rebalanced overall population to be logarithmic mean of (employed persons / workers) for consistency
+  - Most cities should see a ~5-10% increase in total population as a result
+- Rebalanced min/max demand totals for individual points based on overall metropolitan area size
+  - Smaller, less dense metropolitan areas (e.g. 山形・函館・高知) will see greater point density as a result
+  - Larger, already dense metropolitan areas (e.g. 神戸・福岡) should see very little change
+- Point seeding algorithm now takes into account 100m mesh population estimates to avoid placing resident point in areas with no buildings
+  - Most apparent in highly rural areas of the map
+- Added final point/displacement/agglomeration algorithm to reduce very dense point spacing in urban centers
+
+### Bugfixes
+
+- Removed fixed-order origin point assignment in O/D calculation assignment causing significant "skew" in municipality origins for large destination points
+  - This fix also signifcantly reduces the share of municipal O/D misalignment going to the smallest municipalities
+
+![updated_o_d_debug](img/od_municipality.png)
+
+## 0.2.0 (2026-03-15)
 
 ### New Cities
 
@@ -96,9 +126,13 @@ Suggestions are greatly appreciated and I will do my best to accommodate request
 ### Known Issues
 
 - 鹿児島 (Kagoshima) has park data encoded within the ocean due to the national park surrounding 桜島 (Sakurajima).
+- 広島 (Hiroshima) has an improbably tall building -- OSM error
+- 富山 (Toyama) has a very isolated point deep in the mountains -- algorithm quirk
 
 # Planned Updates
 
-- Rebalancing of municipality O/D fit to better handle cities/wards with extreme resident/worker imbalance (e.g. designated city centers)
-- Cultural special demand (e.g. museums/libraries/aquariums/etc.) to simulate more leisure travel
-- Better post-processing of large buildings files to enable (hopefully) larger maps
+- Post-processing of large buildings files to enable (hopefully) larger maps (esp. Nagoya)
+  - Better building foundation depth estimation (based on OSM building size)
+- Reconciliation of 小地域 (small boundary area) job counts vs. 500m job mesh to reduce outliers (e.g. high concentration of workers near a certain set of rice fields)
+- Add demand for other cultural institutions (UNESCO world heritage sites / museums / libraries)
+- Add demand for event venues (particularly stadiums & arenas)

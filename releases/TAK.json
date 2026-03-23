@@ -2,6 +2,14 @@
   "schema_version": 1,
   "versions": [
     {
+      "version": "0.2.0",
+      "game_version": ">=1.2.0",
+      "date": "2026-03-23",
+      "changelog": "Map pack update.",
+      "download": "https://github.com/ahkimn/subwaybuilder-jp-maps/releases/download/0.3.0/TAK.zip",
+      "sha256": "c9b39cfa4489ad96348844fe3a45175fbe544ebf534a2e3aab4bce4faf3f6518"
+    },
+    {
       "version": "0.1.0",
       "game_version": ">=1.2.0",
       "date": "2026-03-14",
