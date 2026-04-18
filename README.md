@@ -61,7 +61,7 @@ Suggestions are greatly appreciated and I will do my best to accommodate request
 
 ### New Features
 
-- FAll updated maps received significant reworks to include:
+- All updated maps received significant reworks to include:
   - Attractions-based demand (~3-7% of total demand)
   - Bathymetric data from J-EGG500 + MSIL as well
   - Neighborhood labels
@@ -71,6 +71,7 @@ Suggestions are greatly appreciated and I will do my best to accommodate request
   - Additional point repulsion pass added at this part of the pipeline which should reduce crowding in dense areas (e.g. 福岡 (Fukuoka) center)
 - Point seeding is also aware of elongated 町丁 shapes.
   - 町丁 with high aspect ratios are now force seeded with multiple points so that individual points do not represent extreme spatial distance
+- On larger maps, building collision boxes are now `amalgamated` to reduce index size without incurring huge losses in coverage
 
 ### Other Updates
 
