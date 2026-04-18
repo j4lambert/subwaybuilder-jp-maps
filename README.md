@@ -49,7 +49,48 @@ Suggestions are greatly appreciated and I will do my best to accommodate request
 
 # Changelog
 
-## 0.3.6 (2026-04-12)
+## 0.3.7 (2026-04-17)
+
+### Major Map Updates
+
+- `KCZ` - 高知 (Kōchi)
+- `MYJ` - 松山 (Matsuyama)
+- `OKA` - 沖縄 (Okinawa)
+- `SPK` - 札幌 (Sapporo)
+- `UKY` - 京都 (Kyōto)
+
+### New Features
+
+- FAll updated maps received significant reworks to include:
+  - Attractions-based demand (~3-7% of total demand)
+  - Bathymetric data from J-EGG500 + MSIL as well
+  - Neighborhood labels
+  - Overture sourced buildings
+- SPK (札幌) updated to extend southeast to 苫小牧 (Tomakomai) as well as northeast to 岩見沢 (Iwamizawa)
+- Initial point seeding is made aware of cross-町丁 points
+  - Additional point repulsion pass added at this part of the pipeline which should reduce crowding in dense areas (e.g. 福岡 (Fukuoka) center)
+- Point seeding is also aware of elongated 町丁 shapes.
+  - 町丁 with high aspect ratios are now force seeded with multiple points so that individual points do not represent extreme spatial distance
+
+### Other Updates
+
+- Fixed designated city ward mapping to be consistent with other municipal labels (e.g. 神戸市中央区|Kōbeshichūōku => 中央区｜Chūō-Ku)
+
+**Cross 町丁 repulsion**
+
+![chocho_repulsion](img/cross_chocho_repulsion.png)
+
+**Elongated 町丁 handling (Before)**
+
+![alt text](img/elongated_chocho_before.png)
+
+**Elongated 町丁 handling (After)**
+
+![alt text](img/elongated_chocho_after.png)
+
+# Changelog
+
+## 0.3.6 (2026-04-16)
 
 ### New Cities
 
@@ -70,12 +111,14 @@ Suggestions are greatly appreciated and I will do my best to accommodate request
 - `AKJ` - 旭川 (Asahikawa)
 - `AOJ` - 津軽 (Tsugaru)
 - `FKS` - 中通り / Nakadōri
+- `SHB` - 根室 / Nemuro
+- `WKJ` - 稚内 / Wakkanai
 
 ### New Features
 
 - All updated maps received new bathymetric data from J-EGG500 + MSIL as well as neighborhood labels + Overture sourced buildings
   - Four existing older maps (FUK, HKD, KKJ, IZO) received significant reworks to include attractions-based demand (~3-10% of total demand)
-  - Three existing newer maps (AKJ, AOJ, FKS) received minor updates as they already had attractions-based demand included, but received new bathymetric data and Overture sourced buildings
+  - Three existing newer maps (AKJ, AOJ, FKS) + test maps (SHB, WKJ) received minor updates as they already had attractions-based demand included, but received new bathymetric data and Overture sourced buildings
 - Added distance / city-scale aware driving time penalty to OSRM routing to make it less optimistic
 - Standardized research process for determining attraction demand (e.g. attendance figures / municipal or prefectural reports) to be applied across all maps moving forward
 
